@@ -1,0 +1,10 @@
+{
+  "name": "fix-it-forward-shop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static storefront with a lightweight Node auth backend",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node tests/run-tests.js"
+  }
+}

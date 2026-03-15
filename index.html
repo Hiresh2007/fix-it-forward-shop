@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fix-It Forward Shop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<a href="#catalog" class="skip-link">Skip to catalogue</a>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="#" class="logo" aria-label="Fix-It Forward Home">Fix-It <span>Forward</span></a>
+  <nav class="nav" aria-label="Primary">
+    <button class="nav__toggle" id="navToggle" aria-expanded="false">☰</button>
+    <ul class="nav__list" id="navMenu">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#catalog">Catalogue</a></li>
+      <li><a href="#" id="navCartLink">Cart</a></li>
+      <li><a href="#" id="navOrdersLink">Your Orders</a></li>
+      <li><a href="#footer">Help</a></li>
+    </ul>
+  </nav>
+  <div class="header-actions">
+    <button class="header-auth" id="authTriggerBtn" aria-label="Open account">
+      <span class="header-auth__avatar" id="authAvatar">?</span>
+      <span class="header-auth__meta">
+        <span class="header-auth__label" id="authLabel">Account</span>
+        <span class="header-auth__name" id="authName">Sign In</span>
+      </span>
+    </button>
+    <button class="header-cart" id="headerCartBtn" aria-label="Open cart">
+      🛒 Cart
+      <span class="header-cart__count" id="cartCount" aria-live="polite">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero" class="hero" aria-labelledby="hero-title">
+  <div class="hero__content">
+    <h1 id="hero-title">Shop Smarter,<br/>Live Better.</h1>
+    <p>Useful stuff, fair prices, and no weird surprises when you check out.</p>
+    <div class="hero__badges">
+      <span class="badge"><span class="badge-dot badge-dot--green"></span>Free shipping over $50</span>
+      <span class="badge"><span class="badge-dot badge-dot--yellow"></span>Sale on now – up to 40% off</span>
+    </div>
+    <button class="btn btn--primary" id="heroShopBtn">Start Shopping →</button>
+  </div>
+  <div class="hero__highlight" aria-hidden="true">
+    <div class="hero__stats">
+      <div class="stat"><div class="stat__value">120+</div><div class="stat__label">Products listed</div></div>
+      <div class="stat"><div class="stat__value">4.9★</div><div class="stat__label">Avg. rating</div></div>
+      <div class="stat"><div class="stat__value">24h</div><div class="stat__label">Dispatch time</div></div>
+      <div class="stat"><div class="stat__value">30d</div><div class="stat__label">Free returns</div></div>
+    </div>
+    <div class="hero__banner">🔥 Flash Sale: Use code <strong style="color:#fff;margin:0 4px">FORWARD20</strong> for 20% off</div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section id="catalog" class="catalog" aria-label="Product catalogue">
+  <header class="catalog__header">
+    <h2>Featured Items</h2>
+    <div class="catalog__filters">
+      <label class="filter-group">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="searchInput" type="search" placeholder="Search…" autocomplete="off"/>
+      </label>
+      <label class="filter-group">
+        <select id="categoryFilter">
+          <option value="">All Categories</option>
+          <option value="tools">Tools</option>
+          <option value="electronics">Electronics</option>
+          <option value="home">Home</option>
+          <option value="lifestyle">Lifestyle</option>
+          <option value="outdoors">Outdoors</option>
+        </select>
+      </label>
+      <label class="filter-group">
+        <select id="sortSelect">
+          <option value="recommended">Recommended</option>
+          <option value="price-asc">Price: Low → High</option>
+          <option value="price-desc">Price: High → Low</option>
+          <option value="name-asc">Name A–Z</option>
+          <option value="discount">Biggest Discount</option>
+        </select>
+      </label>
+    </div>
+  </header>
+  <div class="catalog__meta">
+    <p class="catalog__results" id="catalogResults">Loading…</p>
+    <p class="wishlist-count" id="wishlistCount"></p>
+  </div>
+  <div class="catalog__grid" id="productGrid"></div>
+</section>
+
+<!-- CART PANEL -->
+<aside id="cartPanel" class="cart cart--hidden" aria-label="Shopping cart" aria-live="polite">
+  <header class="cart__header">
+    <h2 class="cart__title">Cart <span class="cart__count-badge" id="cartBadge">0</span></h2>
+    <button class="cart__close" id="cartClose" aria-label="Close cart">×</button>
+  </header>
+  <div class="cart__body">
+    <div class="cart__empty" id="cartEmpty">
+      <span class="cart__empty-icon">🛒</span>
+      Your cart is empty.<br/><small>Add some items to get started!</small>
+    </div>
+    <ul class="cart__items-list" id="cartItems" style="display:none"></ul>
+  </div>
+  <footer class="cart__footer">
+    <div class="promo-row">
+      <input type="text" id="promoInput" placeholder="Promo code (e.g. FORWARD20)" maxlength="20"/>
+      <button class="btn btn--secondary" id="promoBtn" style="padding:8px 14px;font-size:.78rem">Apply</button>
+    </div>
+    <p class="promo-applied" id="promoApplied" style="display:none"></p>
+    <div class="cart__summary">
+      <div class="summary-row"><span class="summary-label">Subtotal</span><span class="summary-value" id="cartSubtotal">$0.00</span></div>
+      <div class="summary-row"><span class="summary-label">Discount</span><span class="summary-value" id="cartDiscount" style="color:var(--green)">—</span></div>
+      <div class="summary-row"><span class="summary-label">Est. Tax (8%)</span><span class="summary-value" id="cartTax">$0.00</span></div>
+      <div class="summary-row summary-row--total"><span class="summary-label">Total</span><span class="summary-value" id="cartTotal">$0.00</span></div>
+    </div>
+    <button class="btn btn--primary btn--full" id="checkoutBtn" disabled>Proceed to Checkout</button>
+    <p class="cart__status" id="cartStatus" aria-live="polite"></p>
+  </footer>
+</aside>
+
+<!-- TOASTS -->
+<div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true" role="status"></div>
+
+<!-- AUTH MODAL -->
+<div class="overlay hidden" id="authOverlay" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+  <div class="modal" id="authModal">
+    <button class="modal__close" id="authClose" aria-label="Close account modal">×</button>
+    <h2 id="authTitle">Your Account</h2>
+    <p class="modal__sub" id="authSub">Create an account or sign in to save your details and check out faster.</p>
+
+    <div id="authGuestView">
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="showLoginBtn">Sign In</button>
+        <button class="auth-tab" id="showRegisterBtn">Create Account</button>
+      </div>
+
+      <div class="auth-panel active" id="loginPanel">
+        <div class="auth-error" id="loginError"></div>
+        <div class="fg"><label for="loginEmail">Email Address</label><input id="loginEmail" type="email" placeholder="you@example.com" autocomplete="email"/></div>
+        <div class="fg"><label for="loginPassword">Password</label><input id="loginPassword" type="password" placeholder="Enter your password" autocomplete="current-password"/></div>
+        <button class="btn btn--primary btn--full" id="loginSubmitBtn">Sign In</button>
+        <p class="form-note">Use the same account each time and your server session will keep you signed in until you log out.</p>
+      </div>
+
+      <div class="auth-panel" id="registerPanel">
+        <div class="auth-error" id="registerError"></div>
+        <div class="fg"><label for="registerName">Full Name</label><input id="registerName" type="text" placeholder="Avery Patel" autocomplete="name"/></div>
+        <div class="fg"><label for="registerEmail">Email Address</label><input id="registerEmail" type="email" placeholder="you@example.com" autocomplete="email"/></div>
+        <div class="fg"><label for="registerPassword">Password</label><input id="registerPassword" type="password" placeholder="At least 8 characters" autocomplete="new-password"/></div>
+        <button class="btn btn--primary btn--full" id="registerSubmitBtn">Create Account</button>
+        <p class="form-note">Accounts are saved by the server so you can sign back in later and keep your order history.</p>
+      </div>
+    </div>
+
+    <div id="authUserView" style="display:none">
+      <div class="auth-status">Authenticated on the server</div>
+      <div class="auth-account">
+        <div class="auth-account__name" id="accountDisplayName"></div>
+        <div class="auth-account__email" id="accountDisplayEmail"></div>
+        <div class="auth-account__actions">
+          <button class="btn btn--secondary" id="authCloseUserBtn" style="flex:1">Close</button>
+          <button class="btn btn--primary" id="logoutBtn" style="flex:1">Sign Out</button>
+        </div>
+      </div>
+      <p class="form-note">You can now proceed to checkout without re-entering your basic contact details.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ORDERS MODAL -->
+<div class="overlay hidden" id="ordersOverlay" role="dialog" aria-modal="true" aria-labelledby="ordersTitle">
+  <div class="modal" id="ordersModal" style="max-width:720px">
+    <button class="modal__close" id="ordersClose" aria-label="Close orders modal">×</button>
+    <h2 id="ordersTitle">Your Orders</h2>
+    <p class="modal__sub" id="ordersSub">Track active deliveries and review what has already arrived.</p>
+    <div id="ordersContent" class="orders-list">
+      <div class="orders-empty">Sign in to see your orders.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="overlay hidden" id="checkoutOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal" id="checkoutModal">
+    <button class="modal__close" id="modalClose" aria-label="Close">×</button>
+    <h2 id="modalTitle">Checkout</h2>
+    <p class="modal__sub" id="modalSub">Complete your order below. All fields required.</p>
+
+    <div class="steps" id="stepsBar">
+      <div class="step active" id="step1El"><div class="step__dot" id="dot1">1</div><div class="step__label">Contact</div></div>
+      <div class="step" id="step2El"><div class="step__dot" id="dot2">2</div><div class="step__label">Shipping</div></div>
+      <div class="step" id="step3El"><div class="step__dot" id="dot3">3</div><div class="step__label">Payment</div></div>
+    </div>
+
+    <!-- Panel 1: Contact -->
+    <div class="step__panel active" id="panel1">
+      <div class="form-row">
+        <div class="fg"><label for="f_first">First Name *</label><input id="f_first" type="text" placeholder="Riya" autocomplete="given-name"/></div>
+        <div class="fg"><label for="f_last">Last Name *</label><input id="f_last" type="text" placeholder="Yadav" autocomplete="family-name"/></div>
+      </div>
+      <div class="fg"><label for="f_email">Email Address *</label><input id="f_email" type="email" placeholder="you@example.com" autocomplete="email"/></div>
+      <div class="fg"><label for="f_phone">Phone *</label><input id="f_phone" type="tel" placeholder="+91 98765 43210" autocomplete="tel"/></div>
+      <button class="btn btn--primary btn--full" id="next1Btn">Continue to Shipping →</button>
+    </div>
+
+    <!-- Panel 2: Shipping -->
+    <div class="step__panel" id="panel2">
+      <div class="fg"><label for="f_addr">Street Address *</label><input id="f_addr" type="text" placeholder="123 Main Street" autocomplete="street-address"/></div>
+      <div class="form-row">
+        <div class="fg"><label for="f_city">City *</label><input id="f_city" type="text" placeholder="Mumbai" autocomplete="address-level2"/></div>
+        <div class="fg"><label for="f_zip">Postal Code *</label><input id="f_zip" type="text" placeholder="400001" autocomplete="postal-code"/></div>
+      </div>
+      <div class="fg">
+        <label for="f_shipping">Shipping Method</label>
+        <select id="f_shipping">
+          <option value="standard">Standard (5–7 days) — Free</option>
+          <option value="express">Express (2–3 days) — $9.99</option>
+          <option value="overnight">Overnight (1 day) — $24.99</option>
+        </select>
+      </div>
+      <div style="display:flex;gap:10px">
+        <button class="btn btn--secondary" id="back1Btn" style="flex:1">← Back</button>
+        <button class="btn btn--primary" id="next2Btn" style="flex:2">Continue to Payment →</button>
+      </div>
+    </div>
+
+    <!-- Panel 3: Payment + Review -->
+    <div class="step__panel" id="panel3">
+      <div class="order-review" id="orderReview"></div>
+      <div class="fg"><label for="f_cname">Name on Card *</label><input id="f_cname" type="text" placeholder="RIYA YADAV" autocomplete="cc-name"/></div>
+      <div class="fg"><label for="f_card">Card Number *</label><input id="f_card" type="text" placeholder="1234 5678 9012 3456" maxlength="19" autocomplete="cc-number"/></div>
+      <div class="form-row">
+        <div class="fg"><label for="f_exp">Expiry *</label><input id="f_exp" type="text" placeholder="MM/YY" maxlength="5" autocomplete="cc-exp"/></div>
+        <div class="fg"><label for="f_cvv">CVV *</label><input id="f_cvv" type="text" placeholder="123" maxlength="4" autocomplete="cc-csc"/></div>
+      </div>
+      <div style="display:flex;gap:10px">
+        <button class="btn btn--secondary" id="back2Btn" style="flex:1">← Back</button>
+        <button class="btn btn--primary" id="placeOrderBtn" style="flex:2">Place Order 🎉</button>
+      </div>
+    </div>
+
+    <!-- Success Panel -->
+    <div class="step__panel" id="panelSuccess">
+      <div class="success-wrap">
+        <span class="success-wrap__icon">✅</span>
+        <h2>Order Confirmed!</h2>
+        <p>Your order has been placed and will be dispatched within 24 hours.</p>
+        <div class="order-id" id="orderIdDisplay"></div>
+        <div class="success-actions">
+          <button class="btn btn--secondary" id="closeSuccessBtn">Continue Shopping</button>
+          <button class="btn btn--primary" id="viewOrdersBtn">View Your Orders</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="footer" class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Fix-It <span>Forward</span></div>
+      <div class="footer-note">© <span id="footerYear"></span> Fix-It Forward Shop. Demo store — orders are simulated.</div>
+    </div>
+    <div class="footer-copy">
+      <div class="footer-credits">Submitted by Amogh &amp; Hiresh ✨</div>
+      <div class="footer-note">Built for the Fix-It Forward transformation event</div>
+    </div>
+  </div>
+</footer>
+
+<div class="expanded-view" id="expandedView">
+  <div class="expanded-content">
+    <button class="close-btn" id="expandedClose" aria-label="Close expanded product">&times;</button>
+    <div id="expandedContent"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
+

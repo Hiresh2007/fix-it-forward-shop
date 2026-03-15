@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "name": "Pro Repair Toolkit",
+    "cat": "tools",
+    "emoji": "🔧",
+    "price": 49.99,
+    "compare": 79.99,
+    "desc": "62-Piece Basic Tool Set with Storage Toolbox for Home, Garage, & Dorm.",
+    "stock": 6,
+    "badge": "sale"
+  },
+  {
+    "id": 2,
+    "name": "Wireless Earbuds X",
+    "cat": "electronics",
+    "emoji": "🎧",
+    "price": 89.99,
+    "compare": null,
+    "desc": "MOTIF II TWS Earbuds with Active Noise Cancellation (IPX5 Water Resistant, Wireless Charging, Black).",
+    "stock": 15,
+    "badge": "hot"
+  },
+  {
+    "id": 3,
+    "name": "Smart LED Desk Lamp",
+    "cat": "home",
+    "emoji": "💡",
+    "price": 34.99,
+    "compare": 44.99,
+    "desc": "Touch-dimming, 3 colour modes, USB-C charging port on the base.",
+    "stock": 20,
+    "badge": "sale"
+  },
+  {
+    "id": 4,
+    "name": "Ergonomic Keyboard",
+    "cat": "electronics",
+    "emoji": "⌨️",
+    "price": 129.99,
+    "compare": 159.99,
+    "desc": "Mechanical switches, tenkeyless layout, per-key RGB backlight.",
+    "stock": 5,
+    "badge": null
+  },
+  {
+    "id": 5,
+    "name": "Bamboo Cutting Board",
+    "cat": "home",
+    "emoji": "🪵",
+    "price": 24.99,
+    "compare": null,
+    "desc": "Sustainable bamboo, juice grooves, non-slip feet. Dishwasher safe.",
+    "stock": 30,
+    "badge": "new"
+  },
+  {
+    "id": 6,
+    "name": "Stainless Water Bottle",
+    "cat": "lifestyle",
+    "emoji": "🍶",
+    "price": 19.99,
+    "compare": 29.99,
+    "desc": "1L double-wall vacuum insulated. Keeps cold 24h, hot 12h.",
+    "stock": 12,
+    "badge": "sale"
+  },
+  {
+    "id": 7,
+    "name": "Hiking Day Pack 20L",
+    "cat": "outdoors",
+    "emoji": "🎒",
+    "price": 64.99,
+    "compare": null,
+    "desc": "20L capacity, rain cover included, chest & hip straps, hydration slot.",
+    "stock": 7,
+    "badge": "hot"
+  },
+  {
+    "id": 8,
+    "name": "Portable Charger 20K",
+    "cat": "electronics",
+    "emoji": "🔋",
+    "price": 44.99,
+    "compare": 59.99,
+    "desc": "20,000mAh, 65W PD fast charge, dual USB-A + USB-C outputs.",
+    "stock": 18,
+    "badge": "sale"
+  },
+  {
+    "id": 9,
+    "name": "Cordless Screwdriver",
+    "cat": "tools",
+    "emoji": "🪛",
+    "price": 39.99,
+    "compare": null,
+    "desc": "Li-ion powered, 24 bits included, magnetic bit holder, LED torch.",
+    "stock": 9,
+    "badge": "new"
+  },
+  {
+    "id": 10,
+    "name": "Ceramic Pour-Over Set",
+    "cat": "lifestyle",
+    "emoji": "☕",
+    "price": 54.99,
+    "compare": 69.99,
+    "desc": "Handcrafted ceramic dripper, carafe, and 40 paper filters included.",
+    "stock": 6,
+    "badge": "sale"
+  },
+  {
+    "id": 11,
+    "name": "Trail Running Shoes",
+    "cat": "outdoors",
+    "emoji": "👟",
+    "price": 99.99,
+    "compare": 139.99,
+    "desc": "Vibram outsole, Gore-Tex waterproofing, heel-to-toe drop 6mm.",
+    "stock": 4,
+    "badge": "sale"
+  },
+  {
+    "id": 12,
+    "name": "Cable Management Kit",
+    "cat": "home",
+    "emoji": "🗂️",
+    "price": 14.99,
+    "compare": null,
+    "desc": "50-piece kit: velcro ties, cable clips, sleeves and labels.",
+    "stock": 25,
+    "badge": "new"
+  }
+]
