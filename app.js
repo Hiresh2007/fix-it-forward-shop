@@ -62,7 +62,7 @@ const PRODUCT_IMAGE_SETS = {
   5:pngImageSet('bamboo-cutting-board', ['Front','Angle','Detail','In Box']),
   6:pngImageSet('stainless-water-bottle', ['Front','Angle','Detail','In Box']),
   7:pngImageSet('hiking-day-pack-20l', ['Front','Angle','Detail','In Box']),
-  8:pngImageSet('portable-charger-20k', ['Front','Angle','Detail','In Box']),
+  8:pngImageSet('portable-charger-20k', ['Front','Angle','Detail']),
   9:pngImageSet('cordless-screwdriver', ['Front','Angle','Detail','In Box']),
   10:pngImageSet('ceramic-pour-over-set', ['Front','Angle','Detail','In Box']),
   11:pngImageSet('trail-running-shoes', ['Front','Angle','Detail','In Box']),
