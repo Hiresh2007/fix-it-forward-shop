@@ -63,7 +63,7 @@ const PRODUCT_IMAGE_SETS = {
   6:pngImageSet('stainless-water-bottle', ['Front','Angle','Detail','In Box']),
   7:pngImageSet('hiking-day-pack-20l', ['Front','Angle','Detail','In Box']),
   8:pngImageSet('portable-charger-20k', ['Front','Angle','Detail']),
-  9:pngImageSet('cordless-screwdriver', ['Front','Angle','Detail','In Box']),
+  9:pngImageSet('cordless-screwdriver', ['Front','Angle']),
   10:pngImageSet('ceramic-pour-over-set', ['Front','Angle','Detail','In Box']),
   11:pngImageSet('trail-running-shoes', ['Front','Angle','Detail','In Box']),
   12:pngImageSet('cable-management-kit', ['Front','Angle','Detail','In Box']),
