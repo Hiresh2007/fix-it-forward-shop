@@ -75,6 +75,7 @@ function createDatabase({ rootDir }) {
       FOREIGN KEY(order_id) REFERENCES orders(id) ON DELETE CASCADE,
       FOREIGN KEY(product_id) REFERENCES products(id)
     );
+
   `);
 
   seedProducts(db, productsSeedPath);

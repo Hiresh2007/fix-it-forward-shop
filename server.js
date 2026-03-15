@@ -12,7 +12,6 @@ const LOG_FILE = path.join(LOG_DIR, 'server.log');
 const SESSION_COOKIE = 'fif_session';
 const CSRF_COOKIE = 'fif_csrf';
 const SESSION_TTL_MS = 7 * 24 * 60 * 60 * 1000;
-
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8',

@@ -80,3 +80,7 @@ API:
 - Product stock is enforced on the server, not just in the browser.
 - Logs are written to [server.log](c:/Users/hires/Downloads/fix-it-forward-shop/logs/server.log).
 - If the app is already running on port `3000`, restart it after backend changes so the latest routes are loaded.
+
+## Website Demo
+
+Link: https://drive.google.com/drive/folders/1FtTfW3WT7gsgFZvOr-TLStAy7I3d9TYc?usp=sharing

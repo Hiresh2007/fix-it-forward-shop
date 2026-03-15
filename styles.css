@@ -312,7 +312,8 @@ img{max-width:100%;display:block}button{font:inherit;cursor:pointer;border:none;
 
 /* FOOTER */
 .site-footer{padding:28px 6vw;border-top:1px solid var(--border);position:relative;z-index:1}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.footer-inner{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);align-items:start;gap:24px}
+.footer-help{display:flex;flex-direction:column;gap:14px}
 .footer-brand{font-family:'Syne',sans-serif;font-weight:800;font-size:.95rem;color:var(--text);text-transform:uppercase;letter-spacing:.08em}
 .footer-brand span{color:var(--primary)}
 .footer-copy{text-align:right}
@@ -337,6 +338,8 @@ mark{background:rgba(78,124,255,.25);color:var(--text);border-radius:2px;padding
   .catalog__grid{grid-template-columns:1fr}
   .catalog__header{flex-direction:column;align-items:flex-start}
   .catalog__filters{width:100%;flex-wrap:wrap}
+  .footer-inner{grid-template-columns:1fr}
+  .footer-copy{text-align:left}
   .cart{left:12px;right:12px;width:auto;bottom:12px}
   .hero{padding:36px 6vw 32px}
   .form-row{grid-template-columns:1fr}
