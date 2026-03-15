@@ -345,7 +345,7 @@ async function handleAuth(req, res, pathname) {
 
   if (pathname === '/api/auth/register' && req.method === 'POST') {
     if (!ensureCsrf(req)) return sendJson(res, 403, { error: 'Invalid CSRF token.' });
-    const limit = rateLimit(req, 'auth-register', 8, 10 * 60 * 1000);
+    const limit = rateLimit(req, 'auth-register', 20, 10 * 60 * 1000);
     if (limit.limited) return sendJson(res, 429, { error: 'Too many registration attempts. Try again later.' }, { 'Retry-After': String(limit.retryAfter) });
     const body = await parseBody(req);
     const error = validateCredentials(body, true);
